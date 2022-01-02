@@ -17,9 +17,17 @@ pipeline {
                 sh 'mvn -B package'
             }
         }
-        stage ('build and publish to dockerhub') {
+        stage ('build image') {
             steps {
                 sh 'sudo docker build -t atabongfontem/ab:latest .'
+            }
+        }
+        stage ('publish to dockerhub') {
+            steps {
+                withCredentials([string(credentialsId: 'atabongfontem', variable: 'dockerhubpwd')]) {
+                sh 'docker login -u atabongfontem -p ${dockerhuppwd}'    
+}
+                sh 'docker push atabongfontem/ab:latest'
             }
         }
     }
