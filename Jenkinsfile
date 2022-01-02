@@ -19,8 +19,8 @@ pipeline {
         }
         stage ('build and publish to dockerhub') {
             steps {
-                sh 'sudo docker build -t devopsxprts/ab:latest .'
-                sh 'sudo docker push devopsxprts/ab:latest'
+                sh 'sudo docker build -t atabongfontem/ab:latest .'
+                sh 'sudo docker push atabongfontem/ab:latest'
             }
         }
         stage ('deploy on kubernetes') {
