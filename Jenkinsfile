@@ -25,7 +25,7 @@ pipeline {
         stage ('publish to dockerhub') {
             steps {
                 withCredentials([string(credentialsId: 'atabongfontem', variable: 'dockerhubpwd')]) {
-                sh 'docker login -u atabongfontem -p ${dockerhuppwd}'    
+                sh 'docker login -u atabongfontem p ${dockerhuppwd}'    
 }
                 sh 'docker push atabongfontem/ab:latest'
             }
