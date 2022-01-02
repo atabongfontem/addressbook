@@ -17,6 +17,7 @@ pipeline {
                 sh 'mvn -B package'
             }
         }
+    }
     post {
         failure {
             sh 'echo the build failed'
