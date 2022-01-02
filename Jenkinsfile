@@ -17,20 +17,6 @@ pipeline {
                 sh 'mvn -B package'
             }
         }
-//        stage ('build and publish to dockerhub') {
-//          steps {
-//                sh 'sudo docker build -t atabongfontem/ab:latest .'
-//                sh 'sudo docker push atabongfontem/ab:latest'
-            }
-        }
-        stage ('deploy on kubernetes') {
-//            agent { label "kubernetes" }
-            steps {
-//                sh 'kubectl apply -f https://raw.githubusercontent.com/upshiftnow/addressbook/master/deployment.yaml'
-                kubernetesDeploy configs: 'deployment.yaml', kubeconfigId: 'kube-config'
-            }
-        }
-    }
     post {
         failure {
             sh 'echo the build failed'
