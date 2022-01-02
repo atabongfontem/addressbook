@@ -27,7 +27,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'atabongfontem', variable: 'dockerhubpwd')]) {
                 sh 'docker login -u atabongfontem -p ${dockerhuppwd}'    
 }
-                sh 'docker push atabongfontem/ab:latest'
+                sh 'sudo docker push atabongfontem/ab:latest'
             }
         }
     }
