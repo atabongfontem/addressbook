@@ -24,7 +24,7 @@ pipeline {
         }
         stage ('publish to dockerhub') {
             steps {
-                sh 'sudo docker push docker.io/atabongfontem/ab:latest'
+                sh 'sudo docker push docker.io/atabongfontem/ab'
             }
         }
     }
